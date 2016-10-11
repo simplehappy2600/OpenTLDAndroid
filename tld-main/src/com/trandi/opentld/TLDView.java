@@ -177,8 +177,8 @@ public class TLDView extends JavaCameraView implements CameraBridgeViewBase.CvCa
 		}
 
 		
-		if(_errMessage !=  null){
-			Core.putText(originalFrame, _errMessage, new Point(0, 300), Core.FONT_HERSHEY_PLAIN, 1.3d, new Scalar(255, 0, 0), 2);
+		if(_errMessage !=  null){			
+			Imgproc.putText(originalFrame, _errMessage, new Point(0, 300), Core.FONT_HERSHEY_PLAIN, 1.3d, new Scalar(255, 0, 0), 2);
 		}
 		
         return originalFrame;
@@ -216,14 +216,14 @@ public class TLDView extends JavaCameraView implements CameraBridgeViewBase.CvCa
 	private static void drawPoints(Mat image, final Point[] points, final Size scale, final Scalar colour){
 		if(points != null){
 			for(Point point : points){
-				Core.circle(image, scaleUp(point, scale), 2, colour);
+				Imgproc.circle(image, scaleUp(point, scale), 2, colour);
 			}
 		}
 	}
 	
 	private static void drawBox(Mat image, final Rect box, final Scalar colour){
 		if(box != null){
-			Core.rectangle(image, box.tl(), box.br(), colour);
+			Imgproc.rectangle(image, box.tl(), box.br(), colour);
 		}
 	}
 	

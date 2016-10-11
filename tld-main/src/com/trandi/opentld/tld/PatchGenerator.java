@@ -77,9 +77,9 @@ class PatchGenerator {
 	    if( backgroundMin != backgroundMax ) {
 	    	Core.randu(patch, backgroundMin, backgroundMax);
 	    	// TODO if that null scalar OK or should it be new Scalar(0) ?
-	    	Imgproc.warpAffine(image, patch, T, patchSize, Imgproc.INTER_LINEAR, Imgproc.BORDER_TRANSPARENT, null);
+	    	Imgproc.warpAffine(image, patch, T, patchSize, Imgproc.INTER_LINEAR, Core.BORDER_TRANSPARENT, null);
 	    } else {
-	    	Imgproc.warpAffine(image, patch, T, patchSize, Imgproc.INTER_LINEAR, Imgproc.BORDER_CONSTANT, new Scalar(backgroundMin));
+	    	Imgproc.warpAffine(image, patch, T, patchSize, Imgproc.INTER_LINEAR, Core.BORDER_CONSTANT, new Scalar(backgroundMin));
 	    }
 
 	    int ksize = randomBlur ? rng.nextInt() % 9 - 5 : 0;
